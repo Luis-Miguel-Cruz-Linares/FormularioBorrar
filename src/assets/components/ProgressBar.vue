@@ -4,8 +4,8 @@
                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
                 role="progressbar" 
                 :aria-valuenow="porcentaje" 
-                aria-valuemin="0"
-                aria-valuemax="100"
+                :aria-valuemin="0"
+                :aria-valuemax="100"
                 :style="`width: ${porcentaje}%`">   <!--Template string JS-->
                 </div>
             </div>
