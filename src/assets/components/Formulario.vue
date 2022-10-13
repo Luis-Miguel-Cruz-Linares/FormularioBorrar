@@ -61,6 +61,7 @@ import { onMounted } from 'vue';
                 urgente: false,
                 proyectos: [],
                 numeroProyectos: 0,
+                borrar: false,
                 
             }),
             methods: {
@@ -70,6 +71,7 @@ import { onMounted } from 'vue';
                         tipo: this.tipo,
                         urgente: this.urgente,
                         completado: false,
+                        borrar: false,
                     };
                     this.proyectos.push(proyecto);
 
@@ -86,10 +88,15 @@ import { onMounted } from 'vue';
                 proyecto[campo] = !proyecto[campo];
 
                 this.saveData();
+                this.borrarCampo();
                 
             },
             saveData(){
                 localStorage.setItem("proyectos", JSON.stringify(this.proyectos));
+            },
+            borrarCampo(){
+                this.proyecto = [];
+                localStorage.removeItem;
             },
             
                 limpiarData() {
