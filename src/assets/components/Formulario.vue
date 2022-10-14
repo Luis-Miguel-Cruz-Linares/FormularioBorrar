@@ -37,7 +37,7 @@
         </div>
 
         <div class="col-12 col-md-7">
-            <total-proyectos :numeroProyectos="numeroProyectos" :proyectos="proyectos" :cambiarEstado="cambiarEstado" :limpiarData="limpiarData"/>
+            <total-proyectos :numeroProyectos="numeroProyectos" :proyectos="proyectos" :cambiarEstado="cambiarEstado" :limpiarData="limpiarData" :borrar="borrar"/>
     <!-- <pre>
         {{ proyecto }}
         {{ tipo }}
@@ -61,7 +61,7 @@ import { onMounted } from 'vue';
                 urgente: false,
                 proyectos: [],
                 numeroProyectos: 0,
-                borrar: false,
+            
                 
             }),
             methods: {
@@ -94,9 +94,9 @@ import { onMounted } from 'vue';
             saveData(){
                 localStorage.setItem("proyectos", JSON.stringify(this.proyectos));
             },
-            borrarCampo(){
-                this.proyecto = [];
-                localStorage.removeItem;
+            borrar(index){
+                this.proyectos.splice(index,1);
+            
             },
             
                 limpiarData() {
@@ -123,6 +123,7 @@ import { onMounted } from 'vue';
             },
             mounted() {
                 this.proyectos= JSON.parse(localStorage.getItem("proyectos")) || [];
+            
             },
     };
 
